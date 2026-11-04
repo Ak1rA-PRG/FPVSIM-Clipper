@@ -122,8 +122,8 @@ class ConsentPage(QWizardPage):
         project = Path(__file__).resolve().parent.parent
         roots = [project / 'docs', project, Path(__file__).resolve().parent]
         if getattr(sys, 'frozen', False):
-            bundle = Path(sys.executable).resolve().parent.parent
-            roots = [bundle / 'docs', bundle, *roots]
+            bundle = Path(sys.executable).resolve().parent
+            roots = [bundle / 'docs', bundle, bundle.parent / 'docs', bundle.parent, *roots]
         self.document_roots = roots
         self.documents_available = all(any((root / self.documents.itemData(i)).is_file() for root in roots)
                                        for i in range(self.documents.count()))
@@ -141,7 +141,7 @@ class ConsentPage(QWizardPage):
         warning.setWordWrap(True)
         layout.addWidget(warning)
         self.license_consent = QCheckBox('適用されるライセンス条件を確認し、同意します')
-        self.clip_consent = QCheckBox('クリップが正常に保存されない場合があることを理解しました')
+        self.clip_consent = QCheckBox('クリップが正常に保存されない場合があり、\n必要に応じて「元動画を保存」ボタンを使用する必要があることを理解しました')
         for checkbox in (self.license_consent, self.clip_consent):
             checkbox.toggled.connect(lambda _checked: self.completeChanged.emit())
             layout.addWidget(checkbox)

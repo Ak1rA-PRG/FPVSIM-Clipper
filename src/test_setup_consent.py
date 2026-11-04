@@ -18,6 +18,8 @@ class ConsentPageTests(unittest.TestCase):
     def test_both_confirmations_required_and_documents_readable(self):
         page = ConsentPage()
         self.assertTrue(page.documents_available)
+        self.assertEqual(page.clip_consent.text().replace('\n', ''),
+                         'クリップが正常に保存されない場合があり、必要に応じて「元動画を保存」ボタンを使用する必要があることを理解しました')
         for index in range(page.documents.count()):
             page.documents.setCurrentIndex(index)
             self.assertTrue(page.text.toPlainText().strip())
@@ -63,6 +65,26 @@ class ConsentPageTests(unittest.TestCase):
                 incomplete.clip_consent.setChecked(True)
                 self.assertFalse(incomplete.documents_available)
                 self.assertFalse(incomplete.isComplete())
+
+    def test_executable_at_package_root(self):
+        names = ['LICENSE', 'THIRD_PARTY_NOTICES.md', 'MICROSOFT_REDISTRIBUTABLE_NOTICE.md',
+                 'LICENSES/Python-License.txt', 'LICENSES/LGPL-3.0.txt']
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            module = root / '_internal' / 'setup_ui.py'
+            module.parent.mkdir()
+            for name in names:
+                path = root / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text('test: ' + name, encoding='utf-8')
+            with patch.object(setup_ui, '__file__', str(module)), \
+                    patch.object(setup_ui.sys, 'frozen', True, create=True), \
+                    patch.object(setup_ui.sys, 'executable', str(root / 'FPVSIM-Clipper.exe')):
+                page = ConsentPage()
+                self.assertTrue(page.documents_available)
+                for index, name in enumerate(names):
+                    page.documents.setCurrentIndex(index)
+                    self.assertEqual(page.text.toPlainText(), 'test: ' + name)
 
 
 if __name__ == '__main__':
