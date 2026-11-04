@@ -1,0 +1,2 @@
+# Preserve upstream license and attribution files byte-for-byte.
+LICENSES/** -text

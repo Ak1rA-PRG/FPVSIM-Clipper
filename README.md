@@ -17,7 +17,7 @@ VelociDroneの自己ベスト更新を検出し、OBS Studioのリプレイバ�
 
 ## 必要なもの
 
-- Windows 10 / 11（64ビット）
+- Windows 10 バージョン1809以降 / Windows 11（64ビット）
 - VelociDrone
 - [OBS Studio](https://obsproject.com/ja)（WebSocketとリプレイバッファを使用）
 
@@ -59,7 +59,7 @@ OBSのリプレイバッファは、保存したい周回時間と前後の追�
 
 ## データとプライバシー
 
-設定・記録はアプリフォルダ内の`fpvsim_clipper_data.json`と`fpvsim_clipper_internal`に保存されます。移行時はアプリを終了してからバックアップしてください。
+設定・記録はアプリフォルダ内の`fpvsim_clipper_data.json`と`fpvsim_clipper_internal`に保存されます。設定ファイルにはOBS WebSocketのパスワードが含まれます。ファイルを共有・公開せず、移行時はアプリを終了してからバックアップしてください。
 
 受信データは`fpvsim_clipper_ws_debug.log`に記録されます。ログや設定ファイルに接続情報・参加者情報などが含まれる可能性があるため、公開や問い合わせの前に内容を確認し、必要に応じて伏せてください。
 
@@ -69,7 +69,7 @@ OBSのリプレイバッファは、保存したい周回時間と前後の追�
 
 ## ライセンスと免責
 
-アプリ本体は[MIT License](LICENSE)です。PySide6 / Qtを含む第三者ライブラリには、それぞれのライセンスが適用されます。配布物に必要な通知・ソースの提供方法・ライブラリ置換手順は公開前に確認します。
+アプリ本体は[MIT License](LICENSE)です。PySide6 / Qtを含む第三者ライブラリには、それぞれのライセンスが適用されます。詳細は[第三者ライセンス一覧](THIRD_PARTY_NOTICES.md)と[Qtの差し替えについて](QT_REPLACEMENT.md)を参照してください。配布物に必要な通知・ソースの提供方法は公開前に確認します。
 
 本アプリはVelociDroneのWebSocket、ログ、ローカルデータベースを読み取ります。具体的な取得・配布方法、特にデータベースの直接読み取りについて、VelociDrone公式の許可は未確認です。
 

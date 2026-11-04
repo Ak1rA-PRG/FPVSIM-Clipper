@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+fpvsim_clipper_data.json
+fpvsim_clipper_ws_debug.log
+*.log
+VELOCIDRONE_SUPPORT_DRAFT.md
+fpvsim_clipper_internal/
+*.mp4
+*.mkv
+*.mov
+*.zip
+build/
+dist/
+.venv/
