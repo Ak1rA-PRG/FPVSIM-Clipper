@@ -77,7 +77,19 @@ py -3.14 -m venv .venv
 .\.venv\Scripts\python.exe src\fpvsim_clipper_qt.py
 ```
 
-テストは `.\.venv\Scripts\python.exe -m unittest discover -s src -p 'test_*.py'` で実行できます。Windows配布物のビルドには `build-requirements.txt` と再配布可能なVisual C++ランタイムが別途必要です。
+テストは `.\.venv\Scripts\python.exe -m unittest discover -s src -p 'test_*.py'` で実行できます。
+
+## Windows版のビルド
+
+Python 3.14の仮想環境と、適用条件を満たすVisual Studioのx64再配布用CRTが必要です。`FPVSIM_VC_REDIST` には、`MSVCP140.dll`などがある再配布用フォルダを指定してください。バージョンとパスは環境に合わせます。`debug_nonredist` は使用しません。
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r build-requirements.txt
+$env:FPVSIM_VC_REDIST = 'C:\Program Files\Microsoft Visual Studio\18\Community\VC\Redist\MSVC\<version>\x64\Microsoft.VC145.CRT'
+.\.venv\Scripts\python.exe -m PyInstaller --clean --noconfirm FPVSIM-Clipper.spec
+```
+
+`dist/FPVSIM-Clipper` はアプリ本体の出力です。これだけでは配布用として完成しません。ライセンス資料、対応ソース、利用者にライブラリを差し替えてもらうための案内などを含むフォルダ構成と、配布条件を別途確認してください。[公開準備メモ](RELEASE_PREPARATION.md)を参照してください。
 
 ## ライセンスと免責
 
