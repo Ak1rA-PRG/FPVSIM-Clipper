@@ -67,6 +67,6 @@ OBSのリプレイバッファは、保存したい周回時間と前後の追�
 
 アプリ本体は[MIT License](LICENSE)です。PySide6 / Qtを含む第三者ライブラリには、それぞれのライセンスが適用されます。詳細は[第三者ライセンス一覧](docs/THIRD_PARTY_NOTICES.md)と[Qtの差し替えについて](docs/QT_REPLACEMENT.md)を参照してください。配布物に必要な通知・ソースの提供方法は公開前に確認します。
 
-本アプリはVelociDroneのWebSocket、ログ、ローカルデータベースを読み取ります。具体的な取得・配布方法、特にデータベースの直接読み取りについて、VelociDrone公式の許可は未確認です。
+本アプリはVelociDroneのWebSocket、ログ、ローカルデータベースを読み取ります。
 
 FPVSIM-ClipperはBat Cave GamesまたはOBS Projectの公式製品ではなく、各社による公認・支援・提携を意味しません。VelociDroneおよびOBS Studioはそれぞれの権利者に帰属します。
