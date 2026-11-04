@@ -4,8 +4,8 @@ import os
 import sys
 from PyInstaller.utils.hooks import collect_submodules
 
-project = Path(SPECPATH)
-source = project / 'src'
+source = Path(SPECPATH)
+project = source.parent
 a = Analysis(
     [str(source / 'fpvsim_clipper_qt.py')],
     pathex=[str(source)],

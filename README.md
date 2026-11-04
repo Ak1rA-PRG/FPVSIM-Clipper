@@ -73,7 +73,7 @@ OBSのリプレイバッファは、保存したい周回時間と前後の追�
 
 ```powershell
 py -3.14 -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r src\requirements.txt
 .\.venv\Scripts\python.exe src\fpvsim_clipper_qt.py
 ```
 
@@ -84,16 +84,16 @@ py -3.14 -m venv .venv
 Python 3.14の仮想環境と、適用条件を満たすVisual Studioのx64再配布用CRTが必要です。`FPVSIM_VC_REDIST` には、`MSVCP140.dll`などがある再配布用フォルダを指定してください。バージョンとパスは環境に合わせます。`debug_nonredist` は使用しません。
 
 ```powershell
-.\.venv\Scripts\python.exe -m pip install -r build-requirements.txt
+.\.venv\Scripts\python.exe -m pip install -r src\build-requirements.txt
 $env:FPVSIM_VC_REDIST = 'C:\Program Files\Microsoft Visual Studio\18\Community\VC\Redist\MSVC\<version>\x64\Microsoft.VC145.CRT'
-.\.venv\Scripts\python.exe -m PyInstaller --clean --noconfirm FPVSIM-Clipper.spec
+.\.venv\Scripts\python.exe -m PyInstaller --clean --noconfirm src\FPVSIM-Clipper.spec
 ```
 
-`dist/FPVSIM-Clipper` はアプリ本体の出力です。これだけでは配布用として完成しません。ライセンス資料、対応ソース、利用者にライブラリを差し替えてもらうための案内などを含むフォルダ構成と、配布条件を別途確認してください。[公開準備メモ](RELEASE_PREPARATION.md)を参照してください。
+`dist/FPVSIM-Clipper` はアプリ本体の出力です。これだけでは配布用として完成しません。ライセンス資料、対応ソース、利用者にライブラリを差し替えてもらうための案内などを含むフォルダ構成と、配布条件を別途確認してください。[公開準備メモ](docs/RELEASE_PREPARATION.md)を参照してください。
 
 ## ライセンスと免責
 
-アプリ本体は[MIT License](LICENSE)です。PySide6 / Qtを含む第三者ライブラリには、それぞれのライセンスが適用されます。詳細は[第三者ライセンス一覧](THIRD_PARTY_NOTICES.md)と[Qtの差し替えについて](QT_REPLACEMENT.md)を参照してください。配布物に必要な通知・ソースの提供方法は公開前に確認します。
+アプリ本体は[MIT License](LICENSE)です。PySide6 / Qtを含む第三者ライブラリには、それぞれのライセンスが適用されます。詳細は[第三者ライセンス一覧](docs/THIRD_PARTY_NOTICES.md)と[Qtの差し替えについて](docs/QT_REPLACEMENT.md)を参照してください。配布物に必要な通知・ソースの提供方法は公開前に確認します。
 
 本アプリはVelociDroneのWebSocket、ログ、ローカルデータベースを読み取ります。具体的な取得・配布方法、特にデータベースの直接読み取りについて、VelociDrone公式の許可は未確認です。
 

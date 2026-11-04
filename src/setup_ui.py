@@ -119,9 +119,11 @@ class ConsentPage(QWizardPage):
             ('Qt / PySide6：LGPL 3.0', 'LICENSES/LGPL-3.0.txt'),
         ]:
             self.documents.addItem(label, path)
-        roots = [Path(__file__).resolve().parent.parent, Path(__file__).resolve().parent]
+        project = Path(__file__).resolve().parent.parent
+        roots = [project / 'docs', project, Path(__file__).resolve().parent]
         if getattr(sys, 'frozen', False):
-            roots.insert(0, Path(sys.executable).resolve().parent.parent)
+            bundle = Path(sys.executable).resolve().parent.parent
+            roots = [bundle / 'docs', bundle, *roots]
         self.document_roots = roots
         self.documents_available = all(any((root / self.documents.itemData(i)).is_file() for root in roots)
                                        for i in range(self.documents.count()))
