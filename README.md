@@ -67,6 +67,18 @@ OBSのリプレイバッファは、保存したい周回時間と前後の追�
 
 [Issues](https://github.com/Ak1rA-PRG/FPVSIM-Clipper/issues)に、発生した状況、OS・OBS・VelociDrone・アプリのバージョン、再現手順を記載してください。ログを共有する場合は、個人情報や接続情報を取り除いてください。
 
+## ソースからの起動
+
+アプリのソース、テスト、アイコンは `src` にあります。WindowsでPython 3.14を使用する場合、リポジトリのルートで次を実行します。
+
+```powershell
+py -3.14 -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe src\fpvsim_clipper_qt.py
+```
+
+テストは `.\.venv\Scripts\python.exe -m unittest discover -s src -p 'test_*.py'` で実行できます。Windows配布物のビルドには `build-requirements.txt` と再配布可能なVisual C++ランタイムが別途必要です。
+
 ## ライセンスと免責
 
 アプリ本体は[MIT License](LICENSE)です。PySide6 / Qtを含む第三者ライブラリには、それぞれのライセンスが適用されます。詳細は[第三者ライセンス一覧](THIRD_PARTY_NOTICES.md)と[Qtの差し替えについて](QT_REPLACEMENT.md)を参照してください。配布物に必要な通知・ソースの提供方法は公開前に確認します。

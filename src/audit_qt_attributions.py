@@ -2,7 +2,7 @@
 import json
 from pathlib import Path
 
-root = Path(__file__).parent / 'LICENSES' / 'qt-upstream-6.10.3'
+root = Path(__file__).resolve().parent.parent / 'LICENSES' / 'qt-upstream-6.10.3'
 missing = []
 count = 0
 for path in root.rglob('qt_attribution.json'):

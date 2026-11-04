@@ -5,13 +5,14 @@ import sys
 from PyInstaller.utils.hooks import collect_submodules
 
 project = Path(SPECPATH)
+source = project / 'src'
 a = Analysis(
-    [str(project / 'fpvsim_clipper_qt.py')],
-    pathex=[str(project)],
+    [str(source / 'fpvsim_clipper_qt.py')],
+    pathex=[str(source)],
     binaries=[],
-    datas=[(str(project / 'assets' / 'app-icon.png'), 'assets')],
+    datas=[(str(source / 'assets' / 'app-icon.png'), 'assets')],
     hiddenimports=collect_submodules('winrt'),
-    hookspath=[str(project / 'pyinstaller_hooks')], hooksconfig={}, runtime_hooks=[],
+    hookspath=[str(source / 'pyinstaller_hooks')], hooksconfig={}, runtime_hooks=[],
     excludes=['imageio_ffmpeg', 'av', 'PySide6.QtMultimedia',
               'AVFoundation', 'CoreMedia', 'Foundation'],
     noarchive=False, optimize=0,
@@ -77,5 +78,5 @@ pyz = PYZ(a.pure)
 exe = EXE(pyz, a.scripts, [], exclude_binaries=True, name='FPVSIM-Clipper',
           debug=False, bootloader_ignore_signals=False, strip=False, upx=False,
           console=False, disable_windowed_traceback=False,
-          icon=str(project / 'assets' / 'app-icon.ico'))
+          icon=str(source / 'assets' / 'app-icon.ico'))
 coll = COLLECT(exe, a.binaries, a.datas, strip=False, upx=False, name='FPVSIM-Clipper')

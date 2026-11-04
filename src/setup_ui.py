@@ -119,7 +119,7 @@ class ConsentPage(QWizardPage):
             ('Qt / PySide6：LGPL 3.0', 'LICENSES/LGPL-3.0.txt'),
         ]:
             self.documents.addItem(label, path)
-        roots = [Path(__file__).resolve().parent]
+        roots = [Path(__file__).resolve().parent.parent, Path(__file__).resolve().parent]
         if getattr(sys, 'frozen', False):
             roots.insert(0, Path(sys.executable).resolve().parent.parent)
         self.document_roots = roots
