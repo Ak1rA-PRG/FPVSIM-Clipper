@@ -52,4 +52,5 @@ def main(root: Path) -> int:
 if __name__ == '__main__':
     if len(sys.argv) != 2:
         raise SystemExit('Usage: python verify_qt_notice_sources.py CANDIDATE_DIRECTORY')
-    raise SystemExit(main(Path(sys.argv[1])))
+    # Resolve relative paths before traversing long Qt source paths on Windows.
+    raise SystemExit(main(Path(sys.argv[1]).resolve()))
