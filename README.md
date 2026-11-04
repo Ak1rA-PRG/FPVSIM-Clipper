@@ -21,7 +21,7 @@ VelociDroneの自己ベスト更新を検出し、OBS Studioのリプレイバ�
 - VelociDrone
 - [OBS Studio](https://obsproject.com/ja)（WebSocketとリプレイバッファを使用）
 
-Windows向け配布版はPythonのインストールを不要とする予定です。macOS版は未検証です。
+Windows向け配布版はPythonのインストールを不要とする予定です。macOS版は対応していません。
 
 ## インストールと初期設定
 
