@@ -1,6 +1,7 @@
 # FPVSIM-Clipper
 
-VelociDroneの自己ベスト更新を検出し、OBS Studioのリプレイバッファから飛行動画を保存する非公式ツールです。
+VelociDroneでの飛行を検出し、OBS Studioのリプレイバッファから飛行動画を保存する非公式ツールです。
+タイムなどから自動でXに投稿する文の作成もできます。
 
 ## 主な機能
 
@@ -23,10 +24,8 @@ VelociDroneの自己ベスト更新を検出し、OBS Studioのリプレイバ�
 
 1. 配布開始後、[Releases](https://github.com/Ak1rA-PRG/FPVSIM-Clipper/releases)からWindows版をダウンロードし、ZIPを展開します。
 2. OBS StudioとVelociDroneをインストールして起動します。
-3. OBSでVelociDroneの映像・音声が映るシーンを作成し、リプレイバッファとWebSocketサーバーを有効にします。
-4. VelociDrone側のWebSocket通信を有効にします。
-5. FPVSIM-Clipperを起動し、セットアップウィザードの案内に従って接続先、保存先、命名ルールなどを設定します。
-6. 接続テストとテスト保存を行い、映像・音声・保存先を確認してから監視を開始します。
+3. FPVSIM-Clipperを起動し、セットアップウィザードの案内に従って接続先、保存先、命名ルールなどを設定します。
+4. 接続テストとテスト保存を行い、映像・音声・保存先を確認してから監視を開始します。
 
 OBSのリプレイバッファは、保存したい周回時間と前後の追加時間を収められる長さに設定してください。
 
@@ -34,7 +33,7 @@ OBSのリプレイバッファは、保存したい周回時間と前後の追�
 
 現在のWindows版にはコード署名がないため、ダウンロードや起動時に「不明な発行元」や「WindowsによってPCが保護されました」と表示される場合があります。Windowsのセキュリティ設定や組織のポリシーによっては、起動できないこともあります。
 
-ファイルはこのリポジトリの[Releases](https://github.com/Ak1rA-PRG/FPVSIM-Clipper/releases)から入手し、提供元と内容を確認してください。ウイルスなどの脅威が検出された場合は、警告を無視して実行せず、検出内容を確認してください。
+ファイルはこのリポジトリの[Releases](https://github.com/Ak1rA-PRG/FPVSIM-Clipper/releases)から入手し、提供元と内容を確認してください。
 
 ## 保存と記録
 
